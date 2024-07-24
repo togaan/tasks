@@ -1,0 +1,404 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #232425;
+}
+.todo_container {
+    width: 800px;
+    margin: 30px auto 0;
+    background-color: #f6f6f6;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+@media (max-width: 825px) {
+    .todo_container {
+        width: 700px;
+    } 
+}
+@media (max-width: 725px) {
+    .todo_container {
+        width: 600px;
+    } 
+}
+@media (max-width: 625px) {
+    .todo_container {
+        width: 500px;
+    } 
+    .no_task {
+        width: fit-content;
+    }
+    .todo_container .task_content .task_box {
+        width: 80%!important;
+    }
+}
+@media (max-width: 525px) {
+    .todo_container {
+        width: 400px;
+    } 
+    .todo_container .task_content .task_box {
+        width: 70%!important;
+    }
+    
+}
+@media (max-width: 425px) {
+    .todo_container {
+        width: 300px;
+    } 
+    
+}
+.todo_container .add_task {
+    padding: 15PX;
+    background-color: #232425;
+    position: relative;
+    
+}
+
+.game_info {
+    color: cyan;
+    position: absolute;
+    top: 27px;
+    left: 40px;
+ 
+    
+}
+
+.todo_container .add_task input {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    background-color: #777;
+    width: calc(100% - 15px);
+    color: cyan;
+    font-size: 20px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    box-shadow:  0 0 5px cyan,
+    0 0 25px cyan;
+}
+.todo_container .add_task input:hover {
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+}
+.todo_container .add_task input:focus {
+    outline: none;
+}
+.todo_container .add_task .plus {
+    position: absolute;
+    height: 43px;
+    width: 43px;
+    background-color: cyan;
+    right: 12px;
+    line-height: 43px;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    color: black;
+    cursor: pointer;
+    font-size: 35px;
+    user-select: none;
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    -ms-transition: transform 1s;
+    -o-transition: transform 1s;
+    box-shadow:  0 0 5px cyan,
+    0 0 25px cyan;
+}
+.todo_container .add_task .plus.hover {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    font-size: 45px;
+    background-color: cyan!important;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+    color: black;
+    
+    
+    
+}
+.todo_container .task_content {
+    padding: 15px;
+    background-color: #232425;
+    border: 1px cyan solid;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+   
+}
+
+
+.todo_container .task_content > span {
+    display: block;
+    background-color: #fff;
+    
+}
+
+.todo_container .task_content > span:not(:last-child) {
+   margin-bottom: 20px;
+}
+.todo_container .task_content .task_box {
+    padding: 2px 5px;
+    position: relative;
+    height: fit-content;
+    font-size: 20px;
+    min-height: 60px;
+    width: 90%;
+    border: 1px cyan solid;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    
+}
+
+
+.todo_container .task_content .task_box .delete {
+    position: absolute;
+    top: 5px;
+    right: -65px;
+    float: right;
+    background-color: #E91E63;
+    padding: 4px 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    box-shadow:  0 0 5px #E91E63,
+    0 0 25px #E91E63;
+    
+}
+.todo_container .task_content .task_box .delete:hover {
+    background-color: cyan!important;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+    color: black;
+}
+.todo_container .task_content .task_box .mark_span {
+    position: absolute;
+    top: 35px;
+    width: 55px;
+    right: -65px;
+    float: right;
+    background-color: #777;
+    padding: 4px 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    box-shadow:  0 0 5px #777,
+    0 0 25px #777;
+    text-align: center;
+    
+    
+}
+.todo_container .task_content .task_box .mark_span:hover {
+    background-color: cyan!important;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+    color: black;
+    
+}
+
+
+.todo_container .task_content .task_box.finished .mark_span{
+    background-color: green;
+}
+.todo_container .task_content .task_box.finished {
+    text-decoration: line-through;
+    color: green;
+}
+
+.di_no {
+    display: none!important;
+}
+.di_bl {
+    display: block!important;
+}
+.z_index_1 {
+    z-index: 1;
+}
+.z_index_2 {
+    z-index: 2;
+}
+.cursor_no_drop {
+    cursor: no-drop!important;
+}
+.cursor_pointer {
+    cursor: pointer!important;
+}
+.task_stats {
+    overflow: hidden;
+    margin: 10px auto;
+    width: 600px;
+    font-size: 16px;
+    background-color: #232425;
+}
+@media (max-width: 625px) {
+    .task_stats {
+        width: 300px!important;
+       
+    }
+    .control_all {
+        width: 100%!important;
+        justify-content: space-between!important;
+    }
+}
+.task_stats .task_count {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    
+}
+.task_stats .task_completed {
+    width: 50%;
+    float: right;
+    padding: 10px;
+    text-align: right;
+    font-size: 16px;
+    color: white;
+}
+.task_stats span {
+    color: #fff;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #E91E63;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    font-size: 16px;
+}
+.task_stats .task_completed span {
+    background-color: #03A9F4;
+}
+
+.control_all {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    -ms-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    z-index: 1;
+    margin-top: 10px;
+    position: relative;
+    
+}
+.control_all button {
+    cursor: pointer;
+    text-align: center;
+    background-color: #E91E63;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    box-shadow:  0 0 5px #E91E63,
+    0 0 25px #E91E63;
+    
+}
+.control_all button:hover {
+    background-color: cyan;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+    color: black;
+}
+.control_all button:nth-of-type(2) {
+    background-color: #777;
+    position: absolute;
+    right: 0px;
+    box-shadow:  0 0 5px #777,
+    0 0 25px #777;
+    
+}
+.control_all button:nth-of-type(2):hover  {
+    background-color: cyan;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+    color: black;
+    
+}
+.control_all button:nth-of-type(3) {
+    background-color: green;
+    position: absolute;
+    right: 0px;
+    display: none;
+    box-shadow:  0 0 5px green,
+    0 0 25px green;
+}
+.control_all button:nth-of-type(3):hover {
+    background-color: cyan;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan, 
+    0 0 100px cyan, 0 0 200px cyan;
+    color: black;
+}
+
+.control_all.active {
+    opacity: 1;
+}
+.control_all button:hover {
+    border: 1px black solid;
+}
+.no_task{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: #173B45!important;
+    padding-bottom: 10px;
+    font-size: 25px!important;
+}
+
+.mark_all_finshed {
+    background-color: black;
+}
